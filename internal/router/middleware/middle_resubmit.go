@@ -9,10 +9,11 @@ import (
 	"github.com/xinliangnote/go-gin-api/internal/pkg/cache"
 	"github.com/xinliangnote/go-gin-api/internal/pkg/core"
 	"github.com/xinliangnote/go-gin-api/pkg/errno"
+	"github.com/xinliangnote/go-gin-api/pkg/errors"
 	"github.com/xinliangnote/go-gin-api/pkg/token"
-
-	"github.com/pkg/errors"
 )
+
+const reSubmitMark = "1"
 
 func (m *middleware) Resubmit() core.HandlerFunc {
 	return func(c core.Context) {
@@ -30,7 +31,7 @@ func (m *middleware) Resubmit() core.HandlerFunc {
 
 		redisKey := configs.RedisKeyPrefixRequestID + tokenString
 		if !m.cache.Exists(redisKey) {
-			err = m.cache.Set(redisKey, "1", time.Minute*cfg.ExpireDuration)
+			err = m.cache.Set(redisKey, reSubmitMark, time.Minute*cfg.ExpireDuration)
 			if err != nil {
 				c.AbortWithError(errno.NewError(
 					http.StatusBadRequest,
@@ -53,7 +54,7 @@ func (m *middleware) Resubmit() core.HandlerFunc {
 			return
 		}
 
-		if redisValue == "1" {
+		if redisValue == reSubmitMark {
 			c.AbortWithError(errno.NewError(
 				http.StatusBadRequest,
 				code.ResubmitMsg,

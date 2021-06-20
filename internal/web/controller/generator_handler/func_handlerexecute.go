@@ -13,6 +13,8 @@ type handlerExecuteRequest struct {
 	Name string `form:"name"`
 }
 
+const handlergenSh = "./scripts/handlergen.sh"
+
 func (h *handler) HandlerExecute() core.HandlerFunc {
 	return func(c core.Context) {
 		req := new(handlerExecuteRequest)
@@ -21,13 +23,15 @@ func (h *handler) HandlerExecute() core.HandlerFunc {
 			return
 		}
 
-		shellPath := fmt.Sprintf("./scripts/handlergen.sh %s", req.Name)
+		shellPath := fmt.Sprintf("%s %s", handlergenSh, req.Name)
 
-		// runtime.GOOS = linux or darwin
-		command := exec.Command("/bin/bash", "-c", shellPath)
+		command := new (exec.Cmd)
 
 		if runtime.GOOS == "windows" {
 			command = exec.Command("cmd", "/C", shellPath)
+		} else {
+			// runtime.GOOS = linux or darwin
+			command = exec.Command("/bin/bash", "-c", shellPath)
 		}
 
 		var stderr bytes.Buffer

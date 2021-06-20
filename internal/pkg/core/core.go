@@ -14,11 +14,11 @@ import (
 	"github.com/xinliangnote/go-gin-api/pkg/color"
 	"github.com/xinliangnote/go-gin-api/pkg/env"
 	"github.com/xinliangnote/go-gin-api/pkg/errno"
+	"github.com/xinliangnote/go-gin-api/pkg/errors"
 	"github.com/xinliangnote/go-gin-api/pkg/trace"
 
 	"github.com/gin-contrib/pprof"
 	"github.com/gin-gonic/gin"
-	"github.com/pkg/errors"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	cors "github.com/rs/cors/wrapper/gin"
 	ginSwagger "github.com/swaggo/gin-swagger"
@@ -440,11 +440,20 @@ func New(logger *zap.Logger, options ...Option) (Mux, error) {
 			}
 
 			decodedURL, _ := url.QueryUnescape(ctx.Request.URL.RequestURI())
+
+			// ctx.Request.Header，精简 Header 参数
+			traceHeader := map[string]string{
+				"Content-Type":              ctx.GetHeader("Content-Type"),
+				configs.HeaderLoginToken:    ctx.GetHeader(configs.HeaderLoginToken),
+				configs.HeaderSignToken:     ctx.GetHeader(configs.HeaderSignToken),
+				configs.HeaderSignTokenDate: ctx.GetHeader(configs.HeaderSignTokenDate),
+			}
+
 			t.WithRequest(&trace.Request{
 				TTL:        "un-limit",
 				Method:     ctx.Request.Method,
 				DecodedURL: decodedURL,
-				Header:     ctx.Request.Header,
+				Header:     traceHeader,
 				Body:       string(context.RawData()),
 			})
 
