@@ -20,6 +20,8 @@ var enUSText = map[int]string{
 	SendEmailError:     "Failed to send mail",
 	MySQLExecError:     "SQL execution failed",
 	GoVersionError:     "Go Version mismatch",
+	SocketConnectError: "Socket not connected",
+	SocketSendError:    "Socket message sending failed",
 
 	AuthorizedCreateError:    "Failed to create caller",
 	AuthorizedListError:      "Failed to get caller list",
@@ -52,4 +54,10 @@ var enUSText = map[int]string{
 	MenuCreateActionError: "Failed to create menu action",
 	MenuListActionError:   "Failed to get menu action list",
 	MenuDeleteActionError: "Failed to delete menu action",
+
+	CronCreateError:  "Failed to create cron",
+	CronUpdateError:  "Failed to update menu",
+	CronListError:    "Failed to get cron list",
+	CronDetailError:  "Failed to get cron detail",
+	CronExecuteError: "Failed to execute cron",
 }

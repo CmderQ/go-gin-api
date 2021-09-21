@@ -20,6 +20,8 @@ var zhCNText = map[int]string{
 	SendEmailError:     "发送邮件失败",
 	MySQLExecError:     "SQL 执行失败",
 	GoVersionError:     "Go 版本不满足要求",
+	SocketConnectError: "Socket 未连接",
+	SocketSendError:    "Socket 消息发送失败",
 
 	AuthorizedCreateError:    "创建调用方失败",
 	AuthorizedListError:      "获取调用方列表失败",
@@ -52,4 +54,10 @@ var zhCNText = map[int]string{
 	MenuCreateActionError: "创建菜单栏功能权限失败",
 	MenuListActionError:   "获取菜单栏功能权限列表失败",
 	MenuDeleteActionError: "删除菜单栏功能权限失败",
+
+	CronCreateError:  "创建后台任务失败",
+	CronUpdateError:  "更新后台任务失败",
+	CronListError:    "获取定时任务列表失败",
+	CronDetailError:  "获取定时任务详情失败",
+	CronExecuteError: "手动执行定时任务失败",
 }

@@ -28,6 +28,8 @@ const (
 	SendEmailError     = 10117
 	MySQLExecError     = 10118
 	GoVersionError     = 10119
+	SocketConnectError = 10120
+	SocketSendError    = 10121
 
 	AuthorizedCreateError    = 20101
 	AuthorizedListError      = 20102
@@ -60,6 +62,12 @@ const (
 	MenuCreateActionError = 20306
 	MenuListActionError   = 20307
 	MenuDeleteActionError = 20308
+
+	CronCreateError  = 20401
+	CronUpdateError  = 20402
+	CronListError    = 20403
+	CronDetailError  = 20404
+	CronExecuteError = 20405
 )
 
 func Text(code int) string {

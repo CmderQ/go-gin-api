@@ -2,7 +2,7 @@ package configs
 
 const (
 	// ProjectVersion 项目版本
-	ProjectVersion = "v1.2.6"
+	ProjectVersion = "v1.2.8"
 
 	// ProjectName 项目名称
 	ProjectName = "go-gin-api"
@@ -13,8 +13,11 @@ const (
 	// ProjectPort 项目端口
 	ProjectPort = ":9999"
 
-	// ProjectLogFile 项目日志存放文件
-	ProjectLogFile = "./logs/" + ProjectName + "-access.log"
+	// ProjectAccessLogFile 项目访问日志存放文件
+	ProjectAccessLogFile = "./logs/" + ProjectName + "-access.log"
+
+	// ProjectCronLogFile 项目后台任务日志存放文件
+	ProjectCronLogFile = "./logs/" + ProjectName + "-cron.log"
 
 	// ProjectInstallMark 项目安装完成标识
 	ProjectInstallMark = "INSTALL.lock"

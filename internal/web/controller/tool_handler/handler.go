@@ -17,6 +17,7 @@ type Handler interface {
 	LogsView() core.HandlerFunc
 	CacheView() core.HandlerFunc
 	DataView() core.HandlerFunc
+	WebsocketView() core.HandlerFunc
 }
 
 type handler struct {
