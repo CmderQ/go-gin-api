@@ -60,7 +60,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/admin_handler.listResponse"
+                            "$ref": "#/definitions/admin.listResponse"
                         }
                     },
                     "400": {
@@ -117,7 +117,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/admin_handler.createResponse"
+                            "$ref": "#/definitions/admin.createResponse"
                         }
                     },
                     "400": {
@@ -146,7 +146,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/admin_handler.detailResponse"
+                            "$ref": "#/definitions/admin.detailResponse"
                         }
                     },
                     "400": {
@@ -191,7 +191,36 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/admin_handler.loginResponse"
+                            "$ref": "#/definitions/admin.loginResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/code.Failure"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/admin/logout": {
+            "post": {
+                "description": "管理员登出",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "API.admin"
+                ],
+                "summary": "管理员登出",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/admin.logoutResponse"
                         }
                     },
                     "400": {
@@ -236,7 +265,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/admin_handler.createResponse"
+                            "$ref": "#/definitions/admin.createResponse"
                         }
                     },
                     "400": {
@@ -274,7 +303,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/admin_handler.listAdminMenuResponse"
+                            "$ref": "#/definitions/admin.listAdminMenuResponse"
                         }
                     },
                     "400": {
@@ -319,7 +348,52 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/admin_handler.modifyPasswordResponse"
+                            "$ref": "#/definitions/admin.modifyPasswordResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/code.Failure"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/admin/modify_personal_info": {
+            "patch": {
+                "description": "修改个人信息",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "API.admin"
+                ],
+                "summary": "修改个人信息",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "昵称",
+                        "name": "nickname",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "手机号",
+                        "name": "mobile",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/admin.modifyPersonalInfoResponse"
                         }
                     },
                     "400": {
@@ -357,7 +431,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/admin_handler.offlineResponse"
+                            "$ref": "#/definitions/admin.offlineResponse"
                         }
                     },
                     "400": {
@@ -395,7 +469,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/admin_handler.resetPasswordResponse"
+                            "$ref": "#/definitions/admin.resetPasswordResponse"
                         }
                     },
                     "400": {
@@ -440,7 +514,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/admin_handler.updateUsedResponse"
+                            "$ref": "#/definitions/admin.updateUsedResponse"
                         }
                     },
                     "400": {
@@ -478,7 +552,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/admin_handler.deleteResponse"
+                            "$ref": "#/definitions/admin.deleteResponse"
                         }
                     },
                     "400": {
@@ -545,7 +619,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/authorized_handler.listResponse"
+                            "$ref": "#/definitions/authorized.listResponse"
                         }
                     },
                     "400": {
@@ -595,7 +669,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/authorized_handler.createResponse"
+                            "$ref": "#/definitions/authorized.createResponse"
                         }
                     },
                     "400": {
@@ -640,7 +714,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/authorized_handler.updateUsedResponse"
+                            "$ref": "#/definitions/authorized.updateUsedResponse"
                         }
                     },
                     "400": {
@@ -678,7 +752,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/authorized_handler.deleteResponse"
+                            "$ref": "#/definitions/authorized.deleteResponse"
                         }
                     },
                     "400": {
@@ -716,7 +790,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/authorized_handler.listAPIResponse"
+                            "$ref": "#/definitions/authorized.listAPIResponse"
                         }
                     },
                     "400": {
@@ -766,7 +840,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/authorized_handler.createAPIResponse"
+                            "$ref": "#/definitions/authorized.createAPIResponse"
                         }
                     },
                     "400": {
@@ -804,7 +878,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/authorized_handler.deleteAPIResponse"
+                            "$ref": "#/definitions/authorized.deleteAPIResponse"
                         }
                     },
                     "400": {
@@ -870,7 +944,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/config_handler.emailResponse"
+                            "$ref": "#/definitions/config.emailResponse"
                         }
                     },
                     "400": {
@@ -931,7 +1005,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/cron_handler.listResponse"
+                            "$ref": "#/definitions/cron.listResponse"
                         }
                     },
                     "400": {
@@ -1053,7 +1127,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/cron_handler.createResponse"
+                            "$ref": "#/definitions/cron.createResponse"
                         }
                     },
                     "400": {
@@ -1091,7 +1165,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/cron_handler.detailResponse"
+                            "$ref": "#/definitions/cron.detailResponse"
                         }
                     },
                     "400": {
@@ -1127,7 +1201,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/cron_handler.detailResponse"
+                            "$ref": "#/definitions/cron.detailResponse"
                         }
                     },
                     "400": {
@@ -1172,7 +1246,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/cron_handler.updateUsedResponse"
+                            "$ref": "#/definitions/cron.updateUsedResponse"
                         }
                     },
                     "400": {
@@ -1303,7 +1377,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/cron_handler.modifyResponse"
+                            "$ref": "#/definitions/cron.modifyResponse"
                         }
                     },
                     "400": {
@@ -1332,7 +1406,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/menu_handler.listResponse"
+                            "$ref": "#/definitions/menu.listResponse"
                         }
                     },
                     "400": {
@@ -1362,7 +1436,7 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/menu_handler.createRequest"
+                            "$ref": "#/definitions/menu.createRequest"
                         }
                     }
                 ],
@@ -1370,7 +1444,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/menu_handler.createResponse"
+                            "$ref": "#/definitions/menu.createResponse"
                         }
                     },
                     "400": {
@@ -1415,7 +1489,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/menu_handler.updateSortResponse"
+                            "$ref": "#/definitions/menu.updateSortResponse"
                         }
                     },
                     "400": {
@@ -1460,7 +1534,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/menu_handler.updateUsedResponse"
+                            "$ref": "#/definitions/menu.updateUsedResponse"
                         }
                     },
                     "400": {
@@ -1498,7 +1572,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/menu_handler.detailResponse"
+                            "$ref": "#/definitions/menu.detailResponse"
                         }
                     },
                     "400": {
@@ -1534,7 +1608,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/menu_handler.deleteResponse"
+                            "$ref": "#/definitions/menu.deleteResponse"
                         }
                     },
                     "400": {
@@ -1572,7 +1646,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/menu_handler.listActionResponse"
+                            "$ref": "#/definitions/menu.listActionResponse"
                         }
                     },
                     "400": {
@@ -1622,7 +1696,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/menu_handler.createActionResponse"
+                            "$ref": "#/definitions/menu.createActionResponse"
                         }
                     },
                     "400": {
@@ -1660,7 +1734,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/menu_handler.deleteActionResponse"
+                            "$ref": "#/definitions/menu.deleteActionResponse"
                         }
                     },
                     "400": {
@@ -1698,7 +1772,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/tool_handler.searchCacheResponse"
+                            "$ref": "#/definitions/tool.searchCacheResponse"
                         }
                     },
                     "400": {
@@ -1736,7 +1810,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/tool_handler.searchCacheResponse"
+                            "$ref": "#/definitions/tool.searchCacheResponse"
                         }
                     },
                     "400": {
@@ -1765,7 +1839,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/tool_handler.dbsResponse"
+                            "$ref": "#/definitions/tool.dbsResponse"
                         }
                     },
                     "400": {
@@ -1817,7 +1891,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/tool_handler.searchMySQLResponse"
+                            "$ref": "#/definitions/tool.searchMySQLResponse"
                         }
                     },
                     "400": {
@@ -1855,7 +1929,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/tool_handler.tablesResponse"
+                            "$ref": "#/definitions/tool.tablesResponse"
                         }
                     },
                     "400": {
@@ -1893,7 +1967,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/tool_handler.hashIdsDecodeResponse"
+                            "$ref": "#/definitions/tool.hashIdsDecodeResponse"
                         }
                     },
                     "400": {
@@ -1931,7 +2005,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/tool_handler.hashIdsEncodeResponse"
+                            "$ref": "#/definitions/tool.hashIdsEncodeResponse"
                         }
                     },
                     "400": {
@@ -1969,7 +2043,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/tool_handler.sendMessageResponse"
+                            "$ref": "#/definitions/tool.sendMessageResponse"
                         }
                     },
                     "400": {
@@ -1983,7 +2057,53 @@
         }
     },
     "definitions": {
-        "admin_handler.createResponse": {
+        "admin.ListMenuData": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "ID",
+                    "type": "integer"
+                },
+                "is_have": {
+                    "description": "是否已拥有权限",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "菜单名称",
+                    "type": "string"
+                },
+                "pid": {
+                    "description": "父类ID",
+                    "type": "integer"
+                }
+            }
+        },
+        "admin.ListMyMenuData": {
+            "type": "object",
+            "properties": {
+                "icon": {
+                    "description": "图标",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "ID",
+                    "type": "integer"
+                },
+                "link": {
+                    "description": "链接地址",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "菜单名称",
+                    "type": "string"
+                },
+                "pid": {
+                    "description": "父类ID",
+                    "type": "integer"
+                }
+            }
+        },
+        "admin.createResponse": {
             "type": "object",
             "properties": {
                 "id": {
@@ -1992,7 +2112,7 @@
                 }
             }
         },
-        "admin_handler.deleteResponse": {
+        "admin.deleteResponse": {
             "type": "object",
             "properties": {
                 "id": {
@@ -2001,14 +2121,14 @@
                 }
             }
         },
-        "admin_handler.detailResponse": {
+        "admin.detailResponse": {
             "type": "object",
             "properties": {
                 "menu": {
                     "description": "菜单栏",
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/admin_service.ListMyMenuData"
+                        "$ref": "#/definitions/admin.ListMyMenuData"
                     }
                 },
                 "mobile": {
@@ -2025,13 +2145,13 @@
                 }
             }
         },
-        "admin_handler.listAdminMenuResponse": {
+        "admin.listAdminMenuResponse": {
             "type": "object",
             "properties": {
                 "list": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/admin_service.ListMenuData"
+                        "$ref": "#/definitions/admin.ListMenuData"
                     }
                 },
                 "username": {
@@ -2039,7 +2159,7 @@
                 }
             }
         },
-        "admin_handler.listData": {
+        "admin.listData": {
             "type": "object",
             "properties": {
                 "created_at": {
@@ -2088,13 +2208,13 @@
                 }
             }
         },
-        "admin_handler.listResponse": {
+        "admin.listResponse": {
             "type": "object",
             "properties": {
                 "list": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/admin_handler.listData"
+                        "$ref": "#/definitions/admin.listData"
                     }
                 },
                 "pagination": {
@@ -2113,7 +2233,7 @@
                 }
             }
         },
-        "admin_handler.loginResponse": {
+        "admin.loginResponse": {
             "type": "object",
             "properties": {
                 "token": {
@@ -2122,7 +2242,7 @@
                 }
             }
         },
-        "admin_handler.logoutResponse": {
+        "admin.logoutResponse": {
             "type": "object",
             "properties": {
                 "username": {
@@ -2131,7 +2251,7 @@
                 }
             }
         },
-        "admin_handler.modifyPasswordResponse": {
+        "admin.modifyPasswordResponse": {
             "type": "object",
             "properties": {
                 "username": {
@@ -2140,7 +2260,7 @@
                 }
             }
         },
-        "admin_handler.modifyPersonalInfoResponse": {
+        "admin.modifyPersonalInfoResponse": {
             "type": "object",
             "properties": {
                 "username": {
@@ -2149,7 +2269,7 @@
                 }
             }
         },
-        "admin_handler.offlineResponse": {
+        "admin.offlineResponse": {
             "type": "object",
             "properties": {
                 "id": {
@@ -2158,7 +2278,7 @@
                 }
             }
         },
-        "admin_handler.resetPasswordResponse": {
+        "admin.resetPasswordResponse": {
             "type": "object",
             "properties": {
                 "id": {
@@ -2167,7 +2287,7 @@
                 }
             }
         },
-        "admin_handler.updateUsedResponse": {
+        "admin.updateUsedResponse": {
             "type": "object",
             "properties": {
                 "id": {
@@ -2176,53 +2296,7 @@
                 }
             }
         },
-        "admin_service.ListMenuData": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "description": "ID",
-                    "type": "integer"
-                },
-                "is_have": {
-                    "description": "是否已拥有权限",
-                    "type": "integer"
-                },
-                "name": {
-                    "description": "菜单名称",
-                    "type": "string"
-                },
-                "pid": {
-                    "description": "父类ID",
-                    "type": "integer"
-                }
-            }
-        },
-        "admin_service.ListMyMenuData": {
-            "type": "object",
-            "properties": {
-                "icon": {
-                    "description": "图标",
-                    "type": "string"
-                },
-                "id": {
-                    "description": "ID",
-                    "type": "integer"
-                },
-                "link": {
-                    "description": "链接地址",
-                    "type": "string"
-                },
-                "name": {
-                    "description": "菜单名称",
-                    "type": "string"
-                },
-                "pid": {
-                    "description": "父类ID",
-                    "type": "integer"
-                }
-            }
-        },
-        "authorized_handler.createAPIResponse": {
+        "authorized.createAPIResponse": {
             "type": "object",
             "properties": {
                 "id": {
@@ -2231,7 +2305,7 @@
                 }
             }
         },
-        "authorized_handler.createResponse": {
+        "authorized.createResponse": {
             "type": "object",
             "properties": {
                 "id": {
@@ -2240,7 +2314,7 @@
                 }
             }
         },
-        "authorized_handler.deleteAPIResponse": {
+        "authorized.deleteAPIResponse": {
             "type": "object",
             "properties": {
                 "id": {
@@ -2249,7 +2323,7 @@
                 }
             }
         },
-        "authorized_handler.deleteResponse": {
+        "authorized.deleteResponse": {
             "type": "object",
             "properties": {
                 "id": {
@@ -2258,7 +2332,7 @@
                 }
             }
         },
-        "authorized_handler.listAPIData": {
+        "authorized.listAPIData": {
             "type": "object",
             "properties": {
                 "api": {
@@ -2279,7 +2353,7 @@
                 }
             }
         },
-        "authorized_handler.listAPIResponse": {
+        "authorized.listAPIResponse": {
             "type": "object",
             "properties": {
                 "business_key": {
@@ -2289,12 +2363,12 @@
                 "list": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/authorized_handler.listAPIData"
+                        "$ref": "#/definitions/authorized.listAPIData"
                     }
                 }
             }
         },
-        "authorized_handler.listData": {
+        "authorized.listData": {
             "type": "object",
             "properties": {
                 "business_developer": {
@@ -2343,13 +2417,13 @@
                 }
             }
         },
-        "authorized_handler.listResponse": {
+        "authorized.listResponse": {
             "type": "object",
             "properties": {
                 "list": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/authorized_handler.listData"
+                        "$ref": "#/definitions/authorized.listData"
                     }
                 },
                 "pagination": {
@@ -2368,7 +2442,7 @@
                 }
             }
         },
-        "authorized_handler.updateUsedResponse": {
+        "authorized.updateUsedResponse": {
             "type": "object",
             "properties": {
                 "id": {
@@ -2390,7 +2464,7 @@
                 }
             }
         },
-        "config_handler.emailResponse": {
+        "config.emailResponse": {
             "type": "object",
             "properties": {
                 "email": {
@@ -2399,7 +2473,7 @@
                 }
             }
         },
-        "cron_handler.createResponse": {
+        "cron.createResponse": {
             "type": "object",
             "properties": {
                 "id": {
@@ -2408,7 +2482,7 @@
                 }
             }
         },
-        "cron_handler.detailResponse": {
+        "cron.detailResponse": {
             "type": "object",
             "properties": {
                 "command": {
@@ -2469,7 +2543,7 @@
                 }
             }
         },
-        "cron_handler.listData": {
+        "cron.listData": {
             "type": "object",
             "properties": {
                 "command": {
@@ -2554,13 +2628,13 @@
                 }
             }
         },
-        "cron_handler.listResponse": {
+        "cron.listResponse": {
             "type": "object",
             "properties": {
                 "list": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/cron_handler.listData"
+                        "$ref": "#/definitions/cron.listData"
                     }
                 },
                 "pagination": {
@@ -2579,7 +2653,7 @@
                 }
             }
         },
-        "cron_handler.modifyResponse": {
+        "cron.modifyResponse": {
             "type": "object",
             "properties": {
                 "id": {
@@ -2588,7 +2662,7 @@
                 }
             }
         },
-        "cron_handler.updateUsedResponse": {
+        "cron.updateUsedResponse": {
             "type": "object",
             "properties": {
                 "id": {
@@ -2597,7 +2671,7 @@
                 }
             }
         },
-        "menu_handler.createActionResponse": {
+        "menu.createActionResponse": {
             "type": "object",
             "properties": {
                 "id": {
@@ -2606,7 +2680,7 @@
                 }
             }
         },
-        "menu_handler.createRequest": {
+        "menu.createRequest": {
             "type": "object",
             "properties": {
                 "icon": {
@@ -2635,7 +2709,7 @@
                 }
             }
         },
-        "menu_handler.createResponse": {
+        "menu.createResponse": {
             "type": "object",
             "properties": {
                 "id": {
@@ -2644,7 +2718,7 @@
                 }
             }
         },
-        "menu_handler.deleteActionResponse": {
+        "menu.deleteActionResponse": {
             "type": "object",
             "properties": {
                 "id": {
@@ -2653,7 +2727,7 @@
                 }
             }
         },
-        "menu_handler.deleteResponse": {
+        "menu.deleteResponse": {
             "type": "object",
             "properties": {
                 "id": {
@@ -2662,7 +2736,7 @@
                 }
             }
         },
-        "menu_handler.detailResponse": {
+        "menu.detailResponse": {
             "type": "object",
             "properties": {
                 "icon": {
@@ -2687,7 +2761,7 @@
                 }
             }
         },
-        "menu_handler.listActionData": {
+        "menu.listActionData": {
             "type": "object",
             "properties": {
                 "api": {
@@ -2708,13 +2782,13 @@
                 }
             }
         },
-        "menu_handler.listActionResponse": {
+        "menu.listActionResponse": {
             "type": "object",
             "properties": {
                 "list": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/menu_handler.listActionData"
+                        "$ref": "#/definitions/menu.listActionData"
                     }
                 },
                 "menu_name": {
@@ -2722,7 +2796,7 @@
                 }
             }
         },
-        "menu_handler.listData": {
+        "menu.listData": {
             "type": "object",
             "properties": {
                 "hashid": {
@@ -2759,18 +2833,18 @@
                 }
             }
         },
-        "menu_handler.listResponse": {
+        "menu.listResponse": {
             "type": "object",
             "properties": {
                 "list": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/menu_handler.listData"
+                        "$ref": "#/definitions/menu.listData"
                     }
                 }
             }
         },
-        "menu_handler.updateSortResponse": {
+        "menu.updateSortResponse": {
             "type": "object",
             "properties": {
                 "id": {
@@ -2779,7 +2853,7 @@
                 }
             }
         },
-        "menu_handler.updateUsedResponse": {
+        "menu.updateUsedResponse": {
             "type": "object",
             "properties": {
                 "id": {
@@ -2788,7 +2862,7 @@
                 }
             }
         },
-        "tool_handler.dbData": {
+        "tool.dbData": {
             "type": "object",
             "properties": {
                 "db_name": {
@@ -2797,19 +2871,19 @@
                 }
             }
         },
-        "tool_handler.dbsResponse": {
+        "tool.dbsResponse": {
             "type": "object",
             "properties": {
                 "list": {
                     "description": "数据库列表",
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/tool_handler.dbData"
+                        "$ref": "#/definitions/tool.dbData"
                     }
                 }
             }
         },
-        "tool_handler.hashIdsDecodeResponse": {
+        "tool.hashIdsDecodeResponse": {
             "type": "object",
             "properties": {
                 "val": {
@@ -2818,7 +2892,7 @@
                 }
             }
         },
-        "tool_handler.hashIdsEncodeResponse": {
+        "tool.hashIdsEncodeResponse": {
             "type": "object",
             "properties": {
                 "val": {
@@ -2827,7 +2901,7 @@
                 }
             }
         },
-        "tool_handler.searchCacheResponse": {
+        "tool.searchCacheResponse": {
             "type": "object",
             "properties": {
                 "ttl": {
@@ -2840,7 +2914,7 @@
                 }
             }
         },
-        "tool_handler.searchMySQLResponse": {
+        "tool.searchMySQLResponse": {
             "type": "object",
             "properties": {
                 "cols": {
@@ -2854,7 +2928,7 @@
                     "description": "行信息",
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/tool_handler.tableColumn"
+                        "$ref": "#/definitions/tool.tableColumn"
                     }
                 },
                 "list": {
@@ -2867,7 +2941,7 @@
                 }
             }
         },
-        "tool_handler.sendMessageResponse": {
+        "tool.sendMessageResponse": {
             "type": "object",
             "properties": {
                 "status": {
@@ -2876,7 +2950,7 @@
                 }
             }
         },
-        "tool_handler.tableColumn": {
+        "tool.tableColumn": {
             "type": "object",
             "properties": {
                 "column_comment": {
@@ -2889,7 +2963,7 @@
                 }
             }
         },
-        "tool_handler.tableData": {
+        "tool.tableData": {
             "type": "object",
             "properties": {
                 "table_comment": {
@@ -2902,14 +2976,14 @@
                 }
             }
         },
-        "tool_handler.tablesResponse": {
+        "tool.tablesResponse": {
             "type": "object",
             "properties": {
                 "list": {
                     "description": "数据表列表",
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/tool_handler.tableData"
+                        "$ref": "#/definitions/tool.tableData"
                     }
                 }
             }
